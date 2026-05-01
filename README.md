@@ -1,50 +1,46 @@
-# Welcome to your Expo app 👋
+# Meditation App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A guided meditation timer for iOS and Android, built with Expo and React Native.
 
-## Get started
+## Stack
 
-1. Install dependencies
+- **Framework:** Expo SDK 51, React Native, TypeScript
+- **Navigation:** Expo Router (file-based)
+- **Styling:** NativeWind (Tailwind for React Native)
+- **Audio:** expo-av for ambient sound playback
+- **State:** React context + AsyncStorage for session history
+- **Tooling:** EAS Build for native binaries
 
-   ```bash
-   npm install
-   ```
+## What it does
 
-2. Start the app
+A small, deliberate app for short meditation sessions:
 
-   ```bash
-    npx expo start
-   ```
+- Pick a duration (1, 3, 5, 10, 15 minutes) and an ambient sound (rain, forest, white noise, silence).
+- A timer with smooth circular progress runs the session; gentle haptics signal start, mid-point, and end.
+- Sessions are stored locally so the home screen can show a streak and a "minutes this week" stat.
+- Light & dark themes follow the device.
 
-In the output, you'll find options to open the app in a
+The point isn't to be a full meditation platform — it's to be one nice screen that does one thing well, and to learn Expo Router + NativeWind in the process.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Running locally
 
 ```bash
-npm run reset-project
+npm install
+npx expo start
+# Press `i` for iOS sim, `a` for Android emulator, or scan the QR with Expo Go
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+To produce installable binaries:
 
-## Learn more
+```bash
+npx eas build --profile preview --platform ios
+npx eas build --profile preview --platform android
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Status
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+In active development — core timer + sound flow works. Streak / history tracking and onboarding are next.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Part of [Ipeleng's portfolio](https://github.com/ipelengmekgwe/portfolio).
